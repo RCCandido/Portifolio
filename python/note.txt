@@ -1,0 +1,58 @@
+-> criar o ambiente virtual
+
+no terminal:
+  python -m venv .venv
+
+-> ativar o ambiente virtual (no terminal do windows)
+.\.venv\Scripts\activate
+
+-> mudando as politicas
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy bypass
+
+-> instalar o django
+pip install django
+
+-> criar o projeto com o django
+django-admin startproject [nomedoprojeto]
+
+-> executar comandos
+python manage.py [comando]
+
+-> rodar projeto
+python manage.py runserver
+
+-> criar um app (o django trabalha com um conjunto de apps como projeto)
+python manage.py startapp [nomedoapp]
+
+-> inserir o app ao setup do projeto no settings.py INSTALLED_APPS
+
+-> Django trabalha com MVT model, views e templates
+devemos inserir no views.py a nossa view como funções e registrar as funções a serem executadas no urls.py do setup
+
+-> criamos uma pasta chamada templates para ficar nossas paginas HTML que são renderizadas no views.py
+
+-> os modelos criados no models.py são classes que devem ser iguais ao banco de dados 
+
+-> inserir a nossa classe modelo no arquivo de migração
+python manage.py makemigrations
+
+-> podemos migrar os modelos desenvolvidas para criar tabelas no banco de dados (sqlite3 que já vem junto com o django)
+python manage.py migrate
+
+-> biblioteca para proteção de dados 
+pip install python-decouple
+
+-> criamos arquivo .env na raiz do projeto e configuramos alguns parametros que estao no settings.py para esconder as strings que devem ser protegidas
+
+-> para escoder dados de configuracao de bando de dados do settings.py usamos a biblioteca dj-database-url
+pip install dj-database-url
+
+-> ferramenta para ajudar na visualização do código em python (identação, qtd de espaços, aspas simples ou duplas..)
+pip install black
+
+-> podemos estilizar com o bootstrap instalando o cryspu-bootstrap5 para estilizar quando o form vem direto do django
+pip install crispy-bootstrap5
+
+-> adicionar tambem no INSTALLED_APPS:
+"crispy_forms",
+"crispy_bootstrap5",
